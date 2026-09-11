@@ -69,7 +69,7 @@ The embedded HTTP layer is based on `com.sun.net.httpserver.HttpServer`. For det
 
 Currently available for **Windows**. A **macOS** release is planned.
 
-- [**Windows**](https://github.com/Kazitanvirazad/MockServer/releases)
+- [**Windows**](https://github.com/Kazitanvirazad/mock-server/releases)
 
 ---
 

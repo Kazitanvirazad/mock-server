@@ -39,7 +39,7 @@ call "%JAVA_HOME%\bin\jpackage" ^
  --name MockServer ^
  --vendor "Kazi Tanvir Azad" ^
  --verbose ^
- --app-version 1.1 ^
+ --app-version 1.2 ^
  --main-jar MockServer.jar ^
  --main-class com.server.app.Launcher ^
  --icon appicon.ico ^
