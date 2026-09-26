@@ -21,9 +21,7 @@ import javafx.stage.Stage;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import java.security.Security;
 import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
@@ -52,10 +50,7 @@ public class MockServerApp extends Application {
             Notification notification = new FXAlertNotification();
             CommonConfig.INSTANCE.setNotification(notification);
             // Setting BouncyCastle Provider to java.security
-            final BouncyCastleProvider provider = new BouncyCastleProvider();
-            if (null == Security.getProvider(BouncyCastleProvider.PROVIDER_NAME)) {
-                Security.addProvider(provider);
-            }
+            CommonConfig.INSTANCE.initBountyCastleProvider();
             // Setting tracer for logging
             setLogTracer();
             // Setting HostServices to Server
