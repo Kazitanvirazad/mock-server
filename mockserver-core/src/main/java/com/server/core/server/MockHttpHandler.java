@@ -22,9 +22,8 @@ public record MockHttpHandler(EndpointInitiator endpointInitiator) implements Ht
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         Map<Method, MethodInitiator> methods = endpointInitiator.getMethods();
-        OutputStream outputStream = exchange.getResponseBody();
         Method inputMethod;
-        try {
+        try (OutputStream outputStream = exchange.getResponseBody()) {
             String exchangeMethod = exchange.getRequestMethod().trim().toUpperCase();
             inputMethod = Method.valueOf(exchangeMethod);
             // checking if exchange has valid http method
@@ -60,6 +59,5 @@ public record MockHttpHandler(EndpointInitiator endpointInitiator) implements Ht
             // sending method not allowed error
             exchange.sendResponseHeaders(METHOD_NOT_ALLOWED_HTTP_CODE, DEFAULT_RESPONSE_LENGTH);
         }
-        outputStream.close();
     }
 }
