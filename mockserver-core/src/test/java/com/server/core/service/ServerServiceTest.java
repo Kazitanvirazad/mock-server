@@ -2,10 +2,10 @@ package com.server.core.service;
 
 import com.server.core.config.CommonConfig;
 import com.server.core.model.data.Server;
+import com.server.core.notification.Notification;
 import com.server.core.repository.ServerRepository;
 import com.server.core.support.ReflectionTestUtil;
 import com.server.core.util.CommonUtil;
-import com.server.core.util.Notification;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

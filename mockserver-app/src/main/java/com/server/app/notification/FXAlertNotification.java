@@ -1,7 +1,7 @@
-package com.server.app.util;
+package com.server.app.notification;
 
 import com.server.app.config.AppConfig;
-import com.server.core.util.Notification;
+import com.server.core.notification.Notification;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
@@ -61,7 +61,7 @@ public class FXAlertNotification implements Notification {
      * @param contentText {@link String} Text to display in the context section of the Alert stage
      * @param alertType   The {@link Alert.AlertType} to be used
      */
-    private static void initializeAlert(String headerText, String contentText, Alert.AlertType alertType) {
+    private void initializeAlert(String headerText, String contentText, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);

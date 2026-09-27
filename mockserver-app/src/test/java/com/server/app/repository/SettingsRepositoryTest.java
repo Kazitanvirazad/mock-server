@@ -2,14 +2,15 @@ package com.server.app.repository;
 
 import com.server.app.config.AppConfig;
 import com.server.app.model.data.Configuration;
+import com.server.app.support.JavaFxToolkitSupport;
 import com.server.app.support.ReflectionTestUtil;
 import com.server.core.config.DBConfig;
 import com.server.core.util.Serializer;
-import javafx.scene.image.Image;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedConstruction;
 import org.mockito.MockedStatic;
 
 import javax.sql.DataSource;
@@ -35,14 +36,22 @@ class SettingsRepositoryTest {
     private SettingsRepository settingsRepository;
     private DataSource originalDataSource;
     private boolean originalStartServerOnStartup;
-    private MockedConstruction<Image> imageConstruction;
+
+    @BeforeAll
+    static void startJavaFxToolkit() {
+        JavaFxToolkitSupport.ensureStarted();
+    }
+
+    @AfterAll
+    static void exitJavaFXToolKit() {
+        JavaFxToolkitSupport.exitApplication();
+    }
 
     @BeforeEach
     void setUp() throws Exception {
         settingsRepository = new SettingsRepository();
         originalDataSource = (DataSource) ReflectionTestUtil.getField(DBConfig.INSTANCE, "dataSource");
         ReflectionTestUtil.setField(DBConfig.INSTANCE, "dataSource", dataSource);
-        imageConstruction = org.mockito.Mockito.mockConstruction(Image.class);
         originalStartServerOnStartup = AppConfig.INSTANCE.getConfiguration().isStartServerOnStartup();
         when(dataSource.getConnection()).thenReturn(connection);
         when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
@@ -52,7 +61,6 @@ class SettingsRepositoryTest {
     void tearDown() {
         ReflectionTestUtil.setField(DBConfig.INSTANCE, "dataSource", originalDataSource);
         AppConfig.INSTANCE.getConfiguration().setStartServerOnStartup(originalStartServerOnStartup);
-        imageConstruction.close();
     }
 
     @Test

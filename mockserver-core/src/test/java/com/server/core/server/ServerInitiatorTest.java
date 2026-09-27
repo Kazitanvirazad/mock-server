@@ -3,8 +3,8 @@ package com.server.core.server;
 import com.server.core.config.CommonConfig;
 import com.server.core.constants.Method;
 import com.server.core.model.data.Server;
+import com.server.core.notification.Notification;
 import com.server.core.support.ReflectionTestUtil;
-import com.server.core.util.Notification;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
@@ -323,7 +323,7 @@ class ServerInitiatorTest {
     }
 
     private static com.sun.net.httpserver.HttpHandler httpHandler(EndpointInitiator endpointInitiator) throws Exception {
-        Class<?> handlerClass = Class.forName("com.server.core.server.ServerInitiator$MockHttpHandler");
+        Class<?> handlerClass = Class.forName("com.server.core.server.MockHttpHandler");
         Constructor<?> constructor = handlerClass.getDeclaredConstructor(EndpointInitiator.class);
         constructor.setAccessible(true);
         return (com.sun.net.httpserver.HttpHandler) constructor.newInstance(endpointInitiator);

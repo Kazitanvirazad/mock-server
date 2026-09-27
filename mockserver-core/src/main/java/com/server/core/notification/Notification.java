@@ -1,4 +1,4 @@
-package com.server.core.util;
+package com.server.core.notification;
 
 /**
  * @author Kazi Tanvir Azad

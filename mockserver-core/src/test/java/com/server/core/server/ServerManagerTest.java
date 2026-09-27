@@ -3,9 +3,9 @@ package com.server.core.server;
 import com.server.core.config.CommonConfig;
 import com.server.core.constants.Method;
 import com.server.core.model.data.Server;
+import com.server.core.notification.Notification;
 import com.server.core.service.ServerService;
 import com.server.core.support.ReflectionTestUtil;
-import com.server.core.util.Notification;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,6 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.mockConstruction;
 import static org.mockito.Mockito.verify;
@@ -56,8 +55,8 @@ class ServerManagerTest {
         ServerManager.INSTANCE.startServer(invalidServer, false);
 
         verify(notification).triggerErrorNotification("Invalid Server", """
-                                        Invalid Server selection.
-                                        Try again later.""");
+                Invalid Server selection.
+                Try again later.""");
         assertFalse(ServerManager.INSTANCE.hasAnyActiveServer());
     }
 
@@ -79,8 +78,8 @@ class ServerManagerTest {
         ServerManager.INSTANCE.startServer(server, false);
 
         verify(notification).triggerErrorNotification("Server is already running", """
-                                        This server is already running.
-                                        Try staring another server.""");
+                This server is already running.
+                Try staring another server.""");
     }
 
     @Test
@@ -153,8 +152,8 @@ class ServerManagerTest {
         ServerManager.INSTANCE.stopServer(server, false);
 
         verify(notification).triggerErrorNotification("Server is not running", """
-                                        This server is not running.
-                                        Try stopping a server already running.""");
+                This server is not running.
+                Try stopping a server already running.""");
     }
 
     @Test

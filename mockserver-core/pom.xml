@@ -12,13 +12,13 @@
     <parent>
         <groupId>com.server</groupId>
         <artifactId>mockserver</artifactId>
-        <version>1.1</version>
+        <version>1.2</version>
     </parent>
 
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://github.com/Kazitanvirazad/MockServer/blob/master/LICENSE</url>
+            <url>https://github.com/Kazitanvirazad/mock-server/blob/master/LICENSE</url>
         </license>
     </licenses>
 
@@ -69,7 +69,7 @@
                                 <exclude>com/server/core/function/**</exclude>
                                 <exclude>com/server/core/model/**</exclude>
                                 <exclude>com/server/core/service/Service.class</exclude>
-                                <exclude>com/server/core/util/Notification.class</exclude>
+                                <exclude>com/server/core/notification/Notification.class</exclude>
                             </excludes>
                         </configuration>
                     </execution>
@@ -87,7 +87,7 @@
                                 <exclude>com/server/core/function/**</exclude>
                                 <exclude>com/server/core/model/**</exclude>
                                 <exclude>com/server/core/service/Service.class</exclude>
-                                <exclude>com/server/core/util/Notification.class</exclude>
+                                <exclude>com/server/core/notification/Notification.class</exclude>
                             </excludes>
                             <rules>
                                 <rule>

@@ -5,7 +5,7 @@ import com.server.core.model.data.Collection;
 import com.server.core.repository.CollectionRepository;
 import com.server.core.support.ReflectionTestUtil;
 import com.server.core.util.CommonUtil;
-import com.server.core.util.Notification;
+import com.server.core.notification.Notification;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -178,6 +178,6 @@ class AppUtilTest {
     void loadEnvironmentPropertiesLoadsClasspathValues() {
         Properties properties = AppUtil.loadEnvironmentProperties();
 
-        assertEquals("1.1", properties.getProperty("app.version"));
+        assertEquals("1.2", properties.getProperty("app.version"));
     }
 }

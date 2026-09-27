@@ -6,6 +6,7 @@ import com.server.core.dto.CollectionDto;
 import com.server.core.dto.ServerDto;
 import com.server.core.model.data.Collection;
 import com.server.core.model.data.Server;
+import com.server.core.notification.Notification;
 import com.server.core.service.CollectionService;
 import com.server.core.service.ServerService;
 import com.server.core.support.ReflectionTestUtil;

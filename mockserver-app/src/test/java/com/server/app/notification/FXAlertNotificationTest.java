@@ -1,8 +1,11 @@
-package com.server.app.util;
+package com.server.app.notification;
 
+import com.server.app.support.JavaFxToolkitSupport;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedConstruction;
 
@@ -16,6 +19,16 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class FXAlertNotificationTest {
+    @BeforeAll
+    static void startJavaFxToolkit() {
+        JavaFxToolkitSupport.ensureStarted();
+    }
+
+    @AfterAll
+    static void exitJavaFXToolKit() {
+        JavaFxToolkitSupport.exitApplication();
+    }
+
     @Test
     void triggerInfoNotificationShowsInformationAlert() {
         try (MockedConstruction<Alert> alertConstruction = mockConstruction(Alert.class);
@@ -84,7 +97,7 @@ class FXAlertNotificationTest {
                     "initializeAlert", String.class, String.class, Alert.AlertType.class);
             initializeAlert.setAccessible(true);
 
-            initializeAlert.invoke(null, "Warning", "Check this", Alert.AlertType.WARNING);
+            initializeAlert.invoke(new FXAlertNotification(), "Warning", "Check this", Alert.AlertType.WARNING);
 
             Alert alert = alertConstruction.constructed().get(0);
             verify(alert).setTitle("Warning");
