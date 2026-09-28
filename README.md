@@ -317,8 +317,10 @@ Choose whether **active mock servers** should **restart automatically** when you
 
 If you find **Mock Server** useful, consider buying me a coffee.
 
-**UPI Details:**<br>
-tanvir.kaziazad-1@okhdfcbank<br>
+**UPI QR Scan:**<br>
+<p align="left">
+  <img src="Docs/scannpay.jpg" style="max-width: 20%; aspect-ratio: auto;" alt="Scan UPI QR code to Donate me" />
+</p>
 
 **Bank Transfer Details:**<br>
 **Account name**- Kazi tanvir azad<br>
