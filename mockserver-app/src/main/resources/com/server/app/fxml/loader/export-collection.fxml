@@ -49,7 +49,7 @@
                                 style="-fx-background-color: #31ae28;" text="Select directory" textAlignment="CENTER"
                                 textFill="WHITE">
                             <font>
-                                <Font size="13.0"/>
+                                <Font name="Arial" size="13.0"/>
                             </font>
                             <cursor>
                                 <Cursor fx:constant="HAND"/>
@@ -80,7 +80,7 @@
                                 style="-fx-background-color: #31ae28;" text="Export Collection" textAlignment="CENTER"
                                 textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="13.0"/>
+                                <Font name="Arial Bold" size="12.0"/>
                             </font>
                             <HBox.margin>
                                 <Insets right="10.0"/>
