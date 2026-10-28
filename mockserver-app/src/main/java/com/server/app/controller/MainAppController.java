@@ -36,6 +36,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
@@ -49,6 +50,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 import java.net.URL;
 import java.util.List;
@@ -83,6 +85,8 @@ public class MainAppController implements Initializable {
         this.serverService = Service.INSTANCE.getServerService();
     }
 
+    @FXML
+    private MenuBar appMenuBar;
     @FXML
     private MenuItem importCollectionMenuItem;
     @FXML
@@ -227,6 +231,9 @@ public class MainAppController implements Initializable {
     }
 
     private void setMenuItemEvents() {
+        if (SystemUtils.IS_OS_MAC) {
+            appMenuBar.useSystemMenuBarProperty().set(true);
+        }
         // setting File>'Close' MenuItem action event
         closeAppMenuItem.setOnAction(AppUtil::exitApplication);
         // setting Options>'Create Collection' MenuItem action event
