@@ -33,7 +33,9 @@ public enum CustomKeyCode {
     }
 
     {
-        this.COPY_KEYCODE_COMBINATION = new KeyCodeCombination(KeyCode.C, KeyCombination.CONTROL_ANY);
+        this.COPY_KEYCODE_COMBINATION =
+                SystemUtils.IS_OS_MAC ? new KeyCodeCombination(KeyCode.C, KeyCombination.META_ANY)
+                        : new KeyCodeCombination(KeyCode.C, KeyCombination.CONTROL_ANY);
         this.ESCAPE_KEYCODE = KeyCode.ESCAPE;
         this.ENTER_KEYCODE = KeyCode.ENTER;
         this.DELETE_KEYCODE = SystemUtils.IS_OS_MAC ? KeyCode.BACK_SPACE : KeyCode.DELETE;

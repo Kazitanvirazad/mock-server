@@ -20,7 +20,7 @@
                         <Button mnemonicParsing="false" onAction="#handleSaveSettingsButton"
                                 style="-fx-background-color: #31ae28;" text="Save" textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="13.0"/>
+                                <Font name="Arial Bold" size="13.0"/>
                             </font>
                             <cursor>
                                 <Cursor fx:constant="HAND"/>
