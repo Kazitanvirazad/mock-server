@@ -19,9 +19,12 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.awt.*;
+import java.net.URL;
 import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
@@ -58,8 +61,23 @@ public class MockServerApp extends Application {
             // Initializing Stage for splash screen and Main core window
             StageLoader<SplashScreenController> splashScreenStageLoader = new SplashScreenStageLoader();
             StageLoader<MainAppController> mainStageLoader = new MainStageLoader(primaryStage);
-            // Loading splash screen during application startup
-            splashScreenStageLoader.loadStage();
+            // Setting macOS Dock app icon using Java AWT
+            if (SystemUtils.IS_OS_MAC) {
+                if (Taskbar.isTaskbarSupported()) {
+                    Taskbar taskbar = Taskbar.getTaskbar();
+                    if (taskbar.isSupported(Taskbar.Feature.ICON_IMAGE)) {
+                        // Load the image using standard AWT Toolkit
+                        URL iconUrl = AppConfig.INSTANCE.getMacDockAppLogo();
+                        Image dockImage = Toolkit.getDefaultToolkit().getImage(iconUrl);
+                        taskbar.setIconImage(dockImage);
+                    }
+                }
+            }
+            /* Loading splash screen during application startup only for windows,
+               because macOS handles Platform.runLater in a different way */
+            if (!SystemUtils.IS_OS_MAC) {
+                splashScreenStageLoader.loadStage();
+            }
 
             // handling the Splash Screen Stage closure and Main App Stage loading
             Platform.runLater(() -> {
@@ -76,12 +94,16 @@ public class MockServerApp extends Application {
                                 .forEach(server -> ServerManager.INSTANCE.startServer(server, true));
                     }
                     // Keeping the Splash screen for 800 milliseconds
-                    Thread.sleep(800);
+                    if (!SystemUtils.IS_OS_MAC) {
+                        Thread.sleep(800);
+                    }
                 } catch (Exception exception) {
                     log.error(exception.getMessage());
                 }
                 // closing splash screen
-                splashScreenStage.close();
+                if (!SystemUtils.IS_OS_MAC) {
+                    splashScreenStage.close();
+                }
                 // Loading application main stage
                 mainStageLoader.loadStage();
             });
