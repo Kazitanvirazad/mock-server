@@ -17,7 +17,7 @@
             prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.server.app.controller.MainAppController">
     <top>
-        <MenuBar BorderPane.alignment="CENTER">
+        <MenuBar fx:id="appMenuBar" BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
@@ -63,6 +63,9 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND"/>
                                     </cursor>
+                                    <font>
+                                        <Font name="Arial Bold" size="12.0"/>
+                                    </font>
                                 </Button>
                             </graphic>
                         </TableColumn>
@@ -99,6 +102,9 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND"/>
                                     </cursor>
+                                    <font>
+                                        <Font name="Arial Bold" size="12.0"/>
+                                    </font>
                                 </Button>
                             </graphic>
                         </TableColumn>
@@ -107,7 +113,7 @@
                 <Text fill="#3b3b3b" layoutX="8.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servers"
                       textAlignment="CENTER" wrappingWidth="71.109375">
                     <font>
-                        <Font size="16.0"/>
+                        <Font name="Arial" size="16.0"/>
                     </font>
                 </Text>
                 <HBox fx:id="activeServerHBox" alignment="CENTER_LEFT" layoutX="605.0" layoutY="1.0" prefHeight="31.0"
@@ -118,7 +124,7 @@
                                 <Insets left="10.0"/>
                             </HBox.margin>
                             <font>
-                                <Font size="13.0"/>
+                                <Font name="Arial" size="13.0"/>
                             </font>
                         </Text>
                         <Text fx:id="activeServerCountText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0">
@@ -151,7 +157,7 @@
                             <children>
                                 <Text fx:id="versionText" fill="#3b3b3b" strokeType="OUTSIDE" strokeWidth="0.0">
                                     <font>
-                                        <Font name="System Bold" size="12.0"/>
+                                        <Font name="Arial Bold" size="12.0"/>
                                     </font>
                                     <HBox.margin>
                                         <Insets right="30.0"/>
@@ -159,7 +165,7 @@
                                 </Text>
                                 <Text fx:id="memoryUsageText" fill="#3b3b3b" strokeType="OUTSIDE" strokeWidth="0.0">
                                     <font>
-                                        <Font name="System Bold" size="12.0"/>
+                                        <Font name="Arial Bold" size="12.0"/>
                                     </font>
                                     <HBox.margin>
                                         <Insets right="30.0"/>
@@ -167,7 +173,7 @@
                                 </Text>
                                 <Text fx:id="cpuUsageText" fill="#3b3b3b" strokeType="OUTSIDE" strokeWidth="0.0">
                                     <font>
-                                        <Font name="System Bold" size="12.0"/>
+                                        <Font name="Arial Bold" size="12.0"/>
                                     </font>
                                 </Text>
                             </children>
@@ -183,7 +189,7 @@
                                         <Insets right="5.0"/>
                                     </HBox.margin>
                                     <font>
-                                        <Font name="System Bold" size="12.0"/>
+                                        <Font name="Arial Bold" size="12.0"/>
                                     </font>
                                 </Button>
                                 <Button mnemonicParsing="false" onAction="#stopServerEvent"
@@ -192,7 +198,7 @@
                                         <Cursor fx:constant="HAND"/>
                                     </cursor>
                                     <font>
-                                        <Font name="System Bold" size="12.0"/>
+                                        <Font name="Arial Bold" size="12.0"/>
                                     </font>
                                 </Button>
                             </children>
