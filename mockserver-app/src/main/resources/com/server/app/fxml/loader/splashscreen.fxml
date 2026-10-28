@@ -15,7 +15,7 @@
             <children>
                 <Text fill="#3b3b3b" strokeType="OUTSIDE" strokeWidth="0.0" text="MOCK SERVER. . . .">
                     <font>
-                        <Font name="System Bold Italic" size="40.0"/>
+                        <Font name="Arial Bold Italic" size="40.0"/>
                     </font>
                     <HBox.margin>
                         <Insets left="10.0"/>
